@@ -36,15 +36,15 @@ The annotated data (community level) can be found as as a csv file under the "an
 ## r/place Over Time
 <table>
   <tr>
-     <td>2 Hours after r/place was launched.</td>
+     <td>**2 Hours** after r/place was launched.</td>
      <td>7 Hours after r/place was launched.</td>
      <td>25 Hours after r/place was launched.</td>
      <td>72 Hours after r/place was launched.</td>
   </tr>
   <tr>
-    <td><img src="pics/1490986860.png" width=230 height=230></td>
-    <td><img src="pics/1491066860.png" width=230 height=230></td>
-    <td><img src="pics/1491116860.png" width=230 height=230></td>
-    <td><img src="pics/1491226860.png" width=230 height=230></td>
+    <td><img src="pics/1490986860.png" width=240 height=240></td>
+    <td><img src="pics/1491066860.png" width=240 height=240></td>
+    <td><img src="pics/1491116860.png" width=240 height=240></td>
+    <td><img src="pics/1491226860.png" width=240 height=240></td>
   </tr>
  </table>

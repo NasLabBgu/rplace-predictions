@@ -36,13 +36,15 @@ The annotated data (community level) can be found as as a csv file under the "an
 
 <table>
   <tr>
-    <td>First Screen Page</td>
+     <td>$t_0+7$ hours into the experiment</td>
+     <td>Holiday Mention</td>
      <td>Holiday Mention</td>
      <td>Present day in purple and selected day in pink</td>
   </tr>
   <tr>
-    <td><img src="pics/1490986860.png" width=270 height=480></td>
-    <td><img src="pics/1491066860.png" width=270 height=480></td>
-    <td><img src="pics/1491116860.png" width=270 height=480></td>
+    <td><img src="pics/1490986860.png" width=200 height=200></td>
+    <td><img src="pics/1491066860.png" width=200 height=200></td>
+    <td><img src="pics/1491116860.png" width=200 height=200></td>
+    <td><img src="pics/1491226860.png" width=200 height=200></td>
   </tr>
  </table>

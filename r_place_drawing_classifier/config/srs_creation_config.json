@@ -1,0 +1,40 @@
+{
+	"random_seed": 1984,
+	"code_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+	},
+	"data_dir": {
+		"yalla": "/data/work/data/reddit_place",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+	},
+	"results_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+	},
+	"saving_options": {
+		"save_obj": "True",
+		"override_existing_files": "False",
+		"file_name_suffix": ""
+	},
+	"comments_usage": {
+		"meta_data": "True",
+		"corpus": "True"
+	},
+	"under_sample": {
+		"logic": "submissions",
+		"ratio": "1.1:1",
+		"start_month": "2017-01",
+		//"end_month": "2017-01",
+		"end_month": "2017-03",
+		"drawing_threshold": 0.7
+	},
+	"data_period": {
+		"start_month": "2016-10",
+		//"end_month": "2016-10"
+		"end_month": "2017-03"
+	}
+}

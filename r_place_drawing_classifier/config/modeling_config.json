@@ -1,0 +1,143 @@
+{
+	"model_version": "0.66",
+	"description": "BERT run (sentence-transformers representation), done for the WWW submissions, October 2021. We do it now with lingustic features only",
+	"random_seed": 1984,
+	"code_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+	},
+	"data_dir": {
+		"yalla": "/data/work/data/reddit_place",
+		//"/data/home/orentsur/data/reddit_place",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+	},
+	"results_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+	},
+	"srs_obj_file": {
+		"yalla": "sr_objects_6_months_sampling_based_submission_30_12_2018.p",
+		//"yalla": "sr_objects_6_months_sbs_no_comments_data.p",
+		"AVRAHAMI-PC": "sr_objects_012017_to_032017_balanced.p"
+	},
+	"results_file": {
+		"yalla": "place_drawing_classifier_results_submission_based_sampling.csv",
+		"AVRAHAMI-PC": "place_drawing_classifier_results_submission_based_sampling.csv"
+	},
+	
+	"saving_options": {
+		"configuration": "True",
+        "measures": "True",
+		"raw_level_pred": "True",
+		"analysis": "True",
+		"models": "True",
+		//relevant only for BOW models
+		"X_matrix": "True"
+	},
+	"comments_usage": {
+		"meta_data": "True",
+		"corpus": "False"
+	},
+	"biggest_srs_removal": {
+		"should_remove": "False",
+		"quantile": 0.05
+	},
+	"submissions_sampling": {
+		"should_sample": "True",
+		"sampling_logic": "score",
+		"percentage": 1.0,
+		"max_subm": 10000
+	},
+	"embedding": {
+		"emb_size": 300,
+		"use_pretrained": "False",
+		"file_path": { 
+			// "embedding/reddit_embedding.txt",
+			// "embedding/wiki.en.vec"
+			"yalla": "embedding/glove.42B.300d.txt",
+			"ABRAHAMI-MOBL2": "embedding\\glove.42B.300d.txt",
+			"AVRAHAMI-PC": "embedding\\glove.42B.300d.txt"
+		}
+	},
+	"meta_data_usage": {
+		"use_meta": "False",
+		"use_network": "False",
+		"network_file_path": {
+			"yalla": "graph_dict.pickle",
+			"ABRAHAMI-MOBL2": "graph_dict.pickle",
+			"AVRAHAMI-PC": "graph_dict.pickle"
+		},
+		// the following options are only working with the "main_classification_based_external_representation.py" file
+		"use_doc2vec": "True",
+		"doc2vec_file_path": {
+			"yalla": "embedding/embedding_per_sr/3.00/doc2vec_model_version_3.00.model"
+		},
+		"use_com2vec": "True",
+		"com2vec_file_path": {
+			"yalla": "communities_overlap_model_13_4_2019_dict.p"
+		}
+	},
+	"cv": {
+		"folds": 5
+	},
+	"class_model": {
+		//model type must be one out of:'clf_meta_only', 'bow', 'mlp', 'single_lstm', 'parallel_lstm', 'cnn_max_pooling'
+		"model_type": "bow",
+		"authors_seq": {
+			"use_authors_seq": "False",
+			"authors_seq_file_path": {
+				"yalla": "combined_seq.pkl",
+				"ABRAHAMI-MOBL2": "combined_seq.pkl",
+				"AVRAHAMI-PC": "combined_seq.pkl"
+			}
+		},
+		"clf_params": {
+			"clf": "GradientBoostingClassifier",
+			"max_depth": 3,
+			"n_estimators": 100,
+			"random_state": 1984
+			//"clf": "LogisticRegression",
+			//"C": 1
+		},
+		"bow_params": {
+			"ngram_size": 2,
+			"use_two_vectorizers": "False",
+			"vectorizer_params": {
+				"max_df": 0.8,
+				"min_df": 3,
+				"max_features": 300
+			}
+		},
+		"nn_params": {
+			"epochs": 6,
+			"hid_size": 150,
+			"early_stopping": "True",
+			"batch_size": 1
+		},
+		"mlp_params": {
+			"with_embed": "True"
+		},
+		"parallel_lstm_params": {
+			"use_bilstm": "False"
+		},
+		"cnn_max_pooling_parmas": {
+			"filter_size": 100,
+			"win_size": 2
+		}
+	},
+	"bert_config": {
+		"use_bert": "True",
+		"request_max_size": 50,
+		"timeout_in_milliseconds": 1200000,
+		//if set to False, we will first check if the model exists already
+		"overwrite_existing": "False",
+		"bert_server_params": {
+			"model_dir": "/data/work/data/reddit_place/bert_data/uncased_L-12_H-768_A-12/",
+			"port": 5544,
+			"port_out": 5546,
+			"max_seq_len": "NONE",
+			"num_worker": 4,
+			"mask_cls_sep": "True"
+		}
+	}
+}

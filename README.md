@@ -43,7 +43,7 @@ The annotated data (community level) can be found as as a csv file under the "an
   </tr>
   <tr>
     <td><img src="pics/1490986860.png" width=240 height=240></td>
-    <td><img src="pics/1490986860.png" width=240 height=240></td>
+    <td><img src="pics/1491066860.png" width=280 height=280></td>
     <td><img src="pics/1491116860.png" width=240 height=240></td>
     <td><img src="pics/1491226860.png" width=240 height=240></td>
   </tr>

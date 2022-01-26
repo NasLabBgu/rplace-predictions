@@ -42,9 +42,9 @@ The annotated data (community level) can be found as as a csv file under the "an
      <td>$t_0+72$ hours into the experiment (end state)</td>
   </tr>
   <tr>
-    <td><img src="pics/1490986860.png" width=150 height=150></td>
-    <td><img src="pics/1491066860.png" width=150 height=150></td>
-    <td><img src="pics/1491116860.png" width=150 height=150></td>
-    <td><img src="pics/1491226860.png" width=150 height=150></td>
+    <td><img src="pics/1490986860.png" width=180 height=180></td>
+    <td><img src="pics/1491066860.png" width=180 height=180></td>
+    <td><img src="pics/1491116860.png" width=180 height=180></td>
+    <td><img src="pics/1491226860.png" width=180 height=180></td>
   </tr>
  </table>

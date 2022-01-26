@@ -36,10 +36,10 @@ The annotated data (community level) can be found as as a csv file under the "an
 ## r/place Over Time
 <table>
   <tr>
-     <td>$`a^2 + b^2 = c^2`$ hours into the experiment</td>
-     <td>$t_0+7$ hours into the experiment</td>
-     <td>$t_0+25$ hours into the experiment</td>
-     <td>$t_0+72$ hours into the experiment (end state)</td>
+     <td>2 Hours after r/place was launched.</td>
+     <td>7 Hours after r/place was launched.</td>
+     <td>25 Hours after r/place was launched.</td>
+     <td>72 Hours after r/place was launched.</td>
   </tr>
   <tr>
     <td><img src="pics/1490986860.png" width=200 height=200></td>

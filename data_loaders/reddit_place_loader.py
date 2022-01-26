@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.6
-# Last update: 6.11.2018
+# Last update: 26.01.2021
 
 import pandas as pd
 import re
@@ -8,8 +8,7 @@ import sys
 import numpy as np
 
 ###################################################### Configurations ##################################################
-data_path = '/home/isabrah/reddit_data/' if sys.platform == 'linux' \
-    else 'C:\\Users\\abrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit canvas\\data\\sr_relations\\'
+data_path = ''# NEED TO SET UP YOUR LOCAL DATA PATH
 use_comments_data = True
 test_data_logic = None   # either 'atlas_based' or 'submission_based' or None
 ########################################################################################################################
@@ -89,7 +88,8 @@ if __name__ == "__main__":
     # saving the objects as hdf files
     submissions_to_save = submissions_subset.loc[relevant_submissions_idx].copy()
     comments_to_save = comments_subset.loc[relevant_comments_idx].copy()
-    submissions_to_save.to_hdf(path_or_buf='/home/isabrah/reddit_data/submission_shrinked.hdf',
+    # in the next 2 lines - set the exact location for savinf the file
+	submissions_to_save.to_hdf(path_or_buf='',
                                key='submission_shrinked')
-    comments_to_save.to_hdf(path_or_buf='/home/isabrah/reddit_data/comments_shrinked.hdf',
+    comments_to_save.to_hdf(path_or_buf='',
                             key='comments_shrinked')

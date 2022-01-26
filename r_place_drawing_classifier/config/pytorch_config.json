@@ -1,32 +1,27 @@
 {
-	"model_version": "0.52",
+	//this is the configuration file for the pytorch modleing process. It should be filled in with correct paths and file names
+	"model_version": "0.1",
 	"description": "cnn_max_pooling_2000_submissions_with_ending_double_layer",
 	"random_seed": 1984,
 	"code_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"data_dir": {
-		"yalla": "/data/home/orentsur/data/reddit_place",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"results_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"srs_obj_file": {
-		//"yalla": "sr_objects_6_months_sampling_based_submission_30_12_2018.p",
-		"yalla": "sr_objects_6_months_sbs_no_comments_data.p",
-		"ABRAHAMI-MOBL2": "sr_objects_102016_to_032017_sample.p",
-		"AVRAHAMI-PC": "sr_objects_102016_to_032017_sample.p"
+		"MACHINE1": "sr_objects_6_months_sbs_no_comments_data.p",
+		"MACHINE2": "sr_objects_102016_to_032017_sample.p"
 	},
 	"results_file": {
-		"yalla": "place_drawing_classifier_results_submission_based_sampling.csv",
-		"ABRAHAMI-MOBL2": "place_drawing_classifier_results_submission_based_sampling.csv",
-		"AVRAHAMI-PC": "place_drawing_classifier_results_submission_based_sampling.csv"
+		"MACHINE1": "place_drawing_classifier_results_submission_based_sampling.csv",
+		"MACHINE2": "place_drawing_classifier_results_submission_based_sampling.csv"
 	},
 	
 	"saving_options": {
@@ -55,39 +50,31 @@
 		"max_subm": 2000
 	},
 	"embedding": {
-		// HAS TO BE 256 for ELMO!!!!!
+		// HAS TO BE 256 for ELMO
 		"emb_size": 300,
 		"use_pretrained": "True",
 		//"elmo",
 		"model_type": "glove",
-		//"elmo_options_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
-		//"elmo_weight_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
-		"elmo_options_file": "/data/home/orentsur/data/reddit_place/embedding/elmo_2x1024_128_2048cnn_1xhighway_options.json",
-		"elmo_weight_file": "/data/home/orentsur/data/reddit_place/embedding/elmo_2x1024_128_2048cnn_1xhighway_weights.hdf5",
+		"elmo_options_file": "",
+		"elmo_weight_file": "",
 		//fix the embedding, so no learning is made on this matrix
 		"static": "False",
 		"file_path": {
-			// "embedding/glove.42B.300d.txt",
-			// "embedding/wiki.en.vec"
-			// "embedding/reddit_embedding.txt"
-			"yalla": "embedding/wiki.en.vec",
-			"ABRAHAMI-MOBL2": "embedding\\glove.42B.300d.txt",
-			"AVRAHAMI-PC": "embedding\\glove.42B.300d.txt"
+			"MACHINE1": "embedding/wiki.en.vec",
+			"MACHINE2": "embedding\\glove.42B.300d.txt"
 		}
 	},
 	"meta_data_usage": {
 		"use_meta": "True",
 		"use_network": "True",
 		"network_file_path": {
-			"yalla": "graph_dict.pickle",
-			"ABRAHAMI-MOBL2": "graph_dict.pickle",
-			"AVRAHAMI-PC": "graph_dict.pickle"
+			"MACHINE1": "graph_dict.pickle",
+			"MACHINE2": "graph_dict.pickle"
 		},
 		"use_communities_overlap": "False",
 		"communities_overlap_file_path": {
-			"yalla": "communities_overlap_model_13_4_2019_dict.p",
-			"ABRAHAMI-MOBL2": "communities_overlap_model_13_4_2019_dict.p",
-			"AVRAHAMI-PC": "communities_overlap_model_13_4_2019_dict.p"
+			"MACHINE1": "communities_overlap_model_13_4_2019_dict.p",
+			"MACHINE2": "communities_overlap_model_13_4_2019_dict.p"
 		}
 	},
 	"cv": {
@@ -113,9 +100,8 @@
 		"authors_seq": {
 			"use_authors_seq": "False",
 			"authors_seq_file_path": {
-				"yalla": "combined_seq.pkl",
-				"ABRAHAMI-MOBL2": "combined_seq.pkl",
-				"AVRAHAMI-PC": "combined_seq.pkl"
+				"MACHINE1": "combined_seq.pkl",
+				"MACHINE2": "combined_seq.pkl"
 			}
 		},
 		"nn_params": {

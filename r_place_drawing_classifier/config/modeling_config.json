@@ -1,28 +1,27 @@
 {
-	"model_version": "0.66",
+	//this is the configuration file for the modleing process. It should be filled in with correct paths and file names
+	"model_version": "0.1",
 	"description": "BERT run (sentence-transformers representation), done for the WWW submissions, October 2021. We do it now with lingustic features only",
 	"random_seed": 1984,
 	"code_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"data_dir": {
-		"yalla": "/data/work/data/reddit_place",
-		//"/data/home/orentsur/data/reddit_place",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"results_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"srs_obj_file": {
-		"yalla": "sr_objects_6_months_sampling_based_submission_30_12_2018.p",
-		//"yalla": "sr_objects_6_months_sbs_no_comments_data.p",
-		"AVRAHAMI-PC": "sr_objects_012017_to_032017_balanced.p"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"results_file": {
-		"yalla": "place_drawing_classifier_results_submission_based_sampling.csv",
-		"AVRAHAMI-PC": "place_drawing_classifier_results_submission_based_sampling.csv"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	
 	"saving_options": {
@@ -52,29 +51,28 @@
 		"emb_size": 300,
 		"use_pretrained": "False",
 		"file_path": { 
-			// "embedding/reddit_embedding.txt",
-			// "embedding/wiki.en.vec"
-			"yalla": "embedding/glove.42B.300d.txt",
-			"ABRAHAMI-MOBL2": "embedding\\glove.42B.300d.txt",
-			"AVRAHAMI-PC": "embedding\\glove.42B.300d.txt"
+
+			"MACHINE1": "embedding/glove.42B.300d.txt",
+			"MACHINE2": "embedding\\glove.42B.300d.txt"
 		}
 	},
 	"meta_data_usage": {
 		"use_meta": "False",
 		"use_network": "False",
 		"network_file_path": {
-			"yalla": "graph_dict.pickle",
-			"ABRAHAMI-MOBL2": "graph_dict.pickle",
-			"AVRAHAMI-PC": "graph_dict.pickle"
+			"MACHINE1": "graph_dict.pickle",
+			"MACHINE2": "graph_dict.pickle"
 		},
 		// the following options are only working with the "main_classification_based_external_representation.py" file
 		"use_doc2vec": "True",
 		"doc2vec_file_path": {
-			"yalla": "embedding/embedding_per_sr/3.00/doc2vec_model_version_3.00.model"
+			"MACHINE1": "",
+			"MACHINE2": ""
 		},
 		"use_com2vec": "True",
 		"com2vec_file_path": {
-			"yalla": "communities_overlap_model_13_4_2019_dict.p"
+			"MACHINE1": "",
+			"MACHINE2": ""
 		}
 	},
 	"cv": {
@@ -86,9 +84,8 @@
 		"authors_seq": {
 			"use_authors_seq": "False",
 			"authors_seq_file_path": {
-				"yalla": "combined_seq.pkl",
-				"ABRAHAMI-MOBL2": "combined_seq.pkl",
-				"AVRAHAMI-PC": "combined_seq.pkl"
+				"MACHINE1": "combined_seq.pkl",
+				"MACHINE2": "combined_seq.pkl"
 			}
 		},
 		"clf_params": {
@@ -96,7 +93,6 @@
 			"max_depth": 3,
 			"n_estimators": 100,
 			"random_state": 1984
-			//"clf": "LogisticRegression",
 			//"C": 1
 		},
 		"bow_params": {
@@ -132,7 +128,7 @@
 		//if set to False, we will first check if the model exists already
 		"overwrite_existing": "False",
 		"bert_server_params": {
-			"model_dir": "/data/work/data/reddit_place/bert_data/uncased_L-12_H-768_A-12/",
+			"model_dir": "",
 			"port": 5544,
 			"port_out": 5546,
 			"max_seq_len": "NONE",

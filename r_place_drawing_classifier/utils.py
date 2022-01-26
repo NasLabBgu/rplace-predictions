@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 04.08.2019
+# Last update: 26.01.2021
 
 import datetime
 import pandas as pd
@@ -127,11 +127,6 @@ def calc_sr_statistics(files_path, included_years, saving_res_path=os.getcwd()):
         location where to save results
     :return: dictionary
         dictionary with statistics to each SR. The function also saves the results as a pickle file
-
-    Example:
-    --------
-    >>> data_path = "/home/isabrah/reddit_pycharm_proj_with_own_pc/data_loaders/r_place_classification/place_classifier_csvs/" if sys.platform == "linux" else "C:\\Users\\abrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit canvas\\data\\place_classifier_csvs\\"
-    >>> dict_res = calc_sr_statistics(files_path=data_path, saving_res_path=data_path, included_years=[2017, 2016], submission_only=True)
     """
     start_time = datetime.datetime.now()
     submission_files = [f for f in os.listdir(files_path) if re.match(r'RS.*\.csv', f)]
@@ -276,7 +271,7 @@ def check_input_validity(config_dict, machine):
     :param config_dict: dict
         the configuration dictionary input. This is read as a json in the main file
     :param machine: str
-        the machine (computer) we work on (e.g. 'yalla')
+        the machine (computer) we work on 
     :return: dict
         the updated config_dict (dictionary) or an error
     """

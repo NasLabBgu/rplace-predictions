@@ -1,3 +1,7 @@
+# Authors: Abraham Israeli
+# Python version: 3.7
+# Last update: 26.01.2021
+
 import os
 import torch
 import torch.autograd as autograd
@@ -50,14 +54,10 @@ def train(train_data, dev_data, test_data, model, config_dict, fold):
             if config_dict['cuda']:
                 feature_separated, explanatory_meta_features, target = feature_separated.cuda(), \
                                                                        explanatory_meta_features, target.cuda()
-            #print("\n\nHandeling sr {}, size of matrix is {}".format(sr_name, feature_separated.shape), flush=True)
             optimizer.zero_grad()
             logit = model(x=feature_separated, explanatory_meta_features=explanatory_meta_features)
             logit.unsqueeze_(0)
             loss = F.cross_entropy(logit, target)
-            #duration = (datetime.datetime.now() - start_time).seconds
-            #print("sr idx is: {}, shape of input {}, loss is {}. Duration up to "
-            #      "now: {} sec".format(cur_example.sr_name, feature_separated.shape, loss, duration))
             loss.backward()
             optimizer.step()
             del feature_separated

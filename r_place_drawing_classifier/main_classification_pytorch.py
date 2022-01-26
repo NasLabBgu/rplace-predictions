@@ -1,15 +1,12 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 06.08.2019
+# Last update: 26.01.2021
 
 # case is based on git from: https://github.com/Shawn1993/cnn-text-classification-pytorch
 
 #! /usr/bin/env python
 import os
 import sys
-if sys.platform == 'linux':
-    sys.path.append('/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster/reddit-tools')
-#os.environ['LD_LIBRARY_PATH'] = '/home/isabrah/anaconda3/lib'
 import datetime
 import torch
 import torchtext.data as data
@@ -25,7 +22,7 @@ import pandas as pd
 
 ###################################################### Configurations ##################################################
 config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'config', 'pytorch_config.json')))
-machine = 'yalla' if sys.platform == 'linux' else os.environ['COMPUTERNAME']
+machine = '' # name of the machine to be used. This should be sync with the config file
 data_path = config_dict['data_dir'][machine]
 
 config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'config', 'pytorch_config.json')))

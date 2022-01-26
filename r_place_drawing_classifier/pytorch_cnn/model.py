@@ -1,10 +1,13 @@
+# Authors: Abraham Israeli
+# Python version: 3.7
+# Last update: 26.01.2021
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 from r_place_drawing_classifier.pytorch_cnn.utils import build_embedding_matrix
 from collections import defaultdict
-#from allennlp.modules.elmo import Elmo, batch_to_ids
 import datetime
 from allennlp.commands.elmo import ElmoEmbedder
 import gc
@@ -36,20 +39,11 @@ class CNN_Text(nn.Module):
             options_file = config_dict['embedding']['elmo_options_file']
             weight_file = config_dict['embedding']['elmo_weight_file']
             self.embed = ElmoEmbedder(options_file, weight_file)
-            #self.embed.training = False
-            #for p in self.embed.parameters():
-            #    p.requires_grad = False
-
+            
         # none of these (just random constant values)
         else:
             self.embed = nn.Embedding(V, D)
-        # self.convs1 = [nn.Conv2d(Ci, Co, (K, D)) for K in Ks]
         self.convs1 = nn.ModuleList([nn.Conv2d(Ci, Co, (K, D)) for K in Ks])
-        '''
-        self.conv13 = nn.Conv2d(Ci, Co, (3, D))
-        self.conv14 = nn.Conv2d(Ci, Co, (4, D))
-        self.conv15 = nn.Conv2d(Ci, Co, (5, D))
-        '''
         self.dropout = nn.Dropout(config_dict['class_model']['nn_params']['dropout'])
         # case the model should end up using meta features data
         #if eval(config_dict['meta_data_usage']['use_meta']):

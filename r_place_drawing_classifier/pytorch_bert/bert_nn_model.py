@@ -1,3 +1,7 @@
+# Authors: Abraham Israeli
+# Python version: 3.7
+# Last update: 26.01.2021
+
 from neural_net.nn_classifier import NNClassifier
 import torch
 import torch.nn.functional as F

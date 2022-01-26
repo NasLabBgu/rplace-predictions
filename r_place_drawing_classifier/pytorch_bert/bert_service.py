@@ -1,3 +1,7 @@
+# Authors: Abraham Israeli
+# Python version: 3.7
+# Last update: 26.01.2021
+
 from bert_serving.client import BertClient
 from bert_serving.server import BertServer
 import time

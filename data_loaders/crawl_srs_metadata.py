@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.6
-# Last update: 6.11.2018
+# Last update: 26.01.2021
 
 import os
 import re
@@ -12,8 +12,7 @@ from prawcore.exceptions import Forbidden, NotFound
 import json
 import numpy as np
 
-data_path = '/home/reddit_data/' if sys.platform == 'linux' \
-    else 'C:\\Users\\abrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit canvas\\data\\'
+data_path = '' # NEED TO SET UP YOUR LOCAL DATA PATH
 
 
 def crawl_srs_meta_data(reddit_obj):
@@ -75,9 +74,10 @@ def crawl_srs_meta_data(reddit_obj):
 
 
 if __name__ == "__main__":
-    reddit = praw.Reddit(client_id='FnSwswueosOi_g',
-                         client_secret='kcUc1ZMxUDLHgO4gzdFCdca79xk',
-                         password='gefenp4',
-                         user_agent='Avrahami_crawling_data',
-                         username='avrahami_isr')
+    # for the next line, need to set up all required IDs
+	reddit = praw.Reddit(client_id='',
+                         client_secret='',
+                         password='',
+                         user_agent='',
+                         username='')
     crawl_srs_meta_data(reddit_obj=reddit)

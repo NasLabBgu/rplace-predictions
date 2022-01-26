@@ -1,12 +1,8 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 31.07.2019
+# Last update: 26.01.2021
 
 from .nn_classifier import NNClassifier
-#import dynet_config
-# set random seed to have the same result each time
-#dynet_config.set(random_seed=1984, mem='5000', autobatch=0)
-#dynet_config.set_gpu()
 import dynet as dy
 import numpy as np
 import time
@@ -167,8 +163,6 @@ class ParallelLstm(NNClassifier):
                 print("Early stopping has been applied since improvement was not greater than 1%")
                 break
             # Perform training
-            #random.seed(self.seed)
-            #random.shuffle(train_data_for_dynet)
             start = time.time()
             cur_mloss = 0.0
             for idx, (sentences, tag) in enumerate(train_data_for_dynet):

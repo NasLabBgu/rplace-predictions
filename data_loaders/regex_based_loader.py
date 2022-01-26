@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
-# Python version: 3.6
-# Last update: 6.11.2018
+# Authors: Abraham Israeli
+# Python version: 3.7
+# Last update: 26.01.2021
 
 import datetime
 import pandas as pd
@@ -13,8 +13,7 @@ import csv
 import lzma
 
 ###################################################### Configurations ##################################################
-data_path = '/home/isabrah/reddit_data/' if sys.platform == 'linux' \
-    else 'C:\\Users\\abrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit canvas\\data\\'
+data_path = ''# NEED TO SET UP YOUR LOCAL DATA PATH
 data_to_process = 'comments'   # can be either 'submission' / 'comments' / 'both'
 regex_required = 'fake[\s_-]*news'
 included_years = [2016, 2015, 2014, 2013, 2012, 2011, 2010]
@@ -180,17 +179,3 @@ def regex_based_loader(data_path, sr_to_include=None, saving_path=os.getcwd(), l
 
 if __name__ == "__main__":
     regex_based_loader(data_path=data_path)
-
-####################### EXTRA CODE ##############
-'''
-# this is in case we want to pull out some statistics regararind each file (distinct users, distinct SR in each file)
-import os
-import pandas as pd
-os.chdir('/home/isabrah/reddit_pycharm_proj_with_own_pc/data_loaders/fake_news_data')
-cur_df = pd.read_csv('RC_2018_desired_regex_filtered.csv')
-cur_df['month'] = pd.DatetimeIndex(cur_df['created_utc_as_date']).month
-unique_srs = cur_df.groupby(['month'])['subreddit'].nunique()
-unique_users = cur_df.groupby(['month'])['author'].nunique()
-result = pd.concat([unique_srs, unique_users], axis=1)
-print(result)
-'''

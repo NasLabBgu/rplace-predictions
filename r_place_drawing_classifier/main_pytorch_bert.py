@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 10.10.2021
+# Last update: 26.01.2021
 
 # Example is taken from: https://github.com/huggingface/pytorch-pretrained-BERT/blob/master/examples/run_classifier.py
 # the bert_as_a_service is really out of date - we will use newer representations of BERT and will not create new
@@ -8,8 +8,6 @@
 """BERT finetuning runner."""
 import sys
 import os
-if sys.platform == 'linux':
-    sys.path.append('/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster/reddit-tools')
 import datetime
 import commentjson
 import sys
@@ -47,17 +45,16 @@ def _extract_sr_info(idx, sr_obj_file, data_path, net_feat_file):
 
 ###################################################### Configurations ##################################################
 config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'config', 'modeling_config.json')))
-machine = 'yalla' if sys.platform == 'linux' else os.environ['COMPUTERNAME']
+machine = '' # name of the machine to be used. This should be sync with the config file
 data_path = config_dict['data_dir'][machine]
 dict_input_as_args = [('-'+key, ) if type(value) is str and value in {'True', 'False'} else ('-'+key, str(value))
                       for key, value in config_dict['bert_config']['bert_server_params'].items()]
 args_for_bert_server = list(chain(*dict_input_as_args))
-#bert_server_args = get_args_parser().parse_args(args_for_bert_server)
 ########################################################################################################################
-start_time = datetime.datetime.now()
 
+start_time = datetime.datetime.now()
 pytorch_cnn_utils.set_random_seed(seed_value=config_dict["random_seed"])
-# 'harambe' SR is problematic
+
 if __name__ == "__main__":
     # update args of the configuration dictionary which can be known right as we start the run
     config_dict['machine'] = machine
@@ -68,8 +65,6 @@ if __name__ == "__main__":
     # case the results folder doesn't exists, we'll create one
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
-    #bert_file_name = 'bert_embedding_model_' + config_dict['model_version'] + '.p'
-    #bert_file_name = 'distilBert_representation_all_srs.p'
     bert_file_name = 'sentence_transformers_representation_all_srs.p'
     file_exists = os.path.isfile(os.path.join(results_folder, bert_file_name))
     srs_subm_embd = dict()
@@ -97,26 +92,7 @@ if __name__ == "__main__":
             continue
         y_vector[r['sr_name']] = r['label']
         other_explanatory_features[r['sr_name']] = r['other_explanatory_features']
-    """
-    for file_idx, sr_obj_file in enumerate(sr_files):
-        cur_sr = pickle.load(open(os.path.join(data_path, 'sr_objects', sr_obj_file), "rb"))
-        # case the language of the current SR is French/Italian/Greek...
-        if not (cur_sr.lang == 'en' or cur_sr.lang is None):
-            print("SR {} was found with a foreign language "
-                  "(target={}), we skip it".format(cur_sr.name, cur_sr.trying_to_draw))
-            continue
-        res = cur_sr.meta_features_handler(smooth_zero_features=True,
-                                           net_feat_file=net_feat_file,
-                                           features_to_exclude=None)
-        # case the dict file with the embedding representation doesn't exist, we'll call the bert server
-        if not file_exists:
-            print("Problem along handling sr {}. Size mismatch".format(cur_sr.name))
-        # if it does exist and the key we are looking for is in that dict
-        elif cur_sr.name in srs_subm_embd:
-            y_vector[cur_sr.name] = 1 if cur_sr.trying_to_draw == 1 else 0
-            other_explanatory_features[cur_sr.name] = \
-                dict(cur_sr.explanatory_features) if eval(config_dict["meta_data_usage"]["use_meta"]) else dict()
-    """
+  
     # creating a df for the training part (+evaluation)
     modeling_df = pytorch_bert_utils.build_modeling_df(explanatory_features=other_explanatory_features,
                                                        bert_embedding=srs_subm_embd,

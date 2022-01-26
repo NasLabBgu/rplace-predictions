@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 06.08.2019
+# Last update: 26.01.2021
 
 import torch.nn as nn
 

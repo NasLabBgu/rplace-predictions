@@ -1,13 +1,9 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 31.07.2019
+# Last update: 26.01.2021
 
 # most code is taken from: https://github.com/neubig/nn4nlp-code/tree/c18372d8466bb12b8c603d4c85f881b0ceacb99c/05-cnn
 from .nn_classifier import NNClassifier
-#import dynet_config
-# set random seed to have the same result each time
-#dynet_config.set(random_seed=1984, mem='5000', autobatch=0)
-#dynet_config.set_gpu()
 import dynet as dy
 import numpy as np
 import time
@@ -366,16 +362,3 @@ class CnnMaxPooling(NNClassifier):
         new_model_obj.t2i = defaultdict(lambda: len(new_model_obj.t2i), new_model_obj.t2i)
         new_model_obj.model = model_to_load
         return new_model_obj
-
-
-    '''
-    @staticmethod
-    def from_spec(spec, model):
-        tokenizer, eval_measures, emb_size, early_stopping, epochs, use_meta_features, batch_size, seed, filter_size, win_size = spec
-        return CnnMaxPooling(model, tokenizer, eval_measures, emb_size, early_stopping, epochs, use_meta_features,
-                             batch_size, seed, filter_size, win_size)
-
-    # support saving:
-    def param_collection(self):
-        return self.pc
-    '''

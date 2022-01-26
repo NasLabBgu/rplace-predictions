@@ -1,13 +1,12 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 04.08.2019
+# Last update: 26.01.2021
+
 
 import warnings
 warnings.simplefilter("ignore")
 import gc
 import sys
-if sys.platform == 'linux':
-    sys.path.append('/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster/reddit-tools')
 import os
 import numpy as np
 import collections
@@ -28,7 +27,7 @@ STOPLIST = set(stopwords.words('english') + list(ENGLISH_STOP_WORDS))
 
 ###################################################### Configurations ##################################################
 config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'config', 'srs_creation_config.json')))
-machine = 'yalla' if sys.platform == 'linux' else os.environ['COMPUTERNAME']
+machine = '' # name of the machine to be used. This should be sync with the config file
 data_path = config_dict['data_dir'][machine]
 batch_number = 0
 ########################################################################################################################
@@ -220,53 +219,6 @@ if __name__ == "__main__":
                           range(processes_amount)]
         pool = mp.Pool(processes=processes_amount)
         with pool as pool:
-            results = pool.starmap(_sr_creation, input_for_pool)
-        #sr_objects = list(chain.from_iterable(results))
-
-        # shuffle the data (the sr objects) so it will have different order
-        '''
-        idx = np.random.RandomState(seed=config_dict['random_seed']).permutation(len(sr_objects))
-        sr_objects = [sr_objects[i] for i in idx]
-        # saving the data up to now into a pickle file
-        if eval(config_dict['saving_options']['save_obj']):
-            pickle.dump(sr_objects,
-                        open(os.path.join(data_path, ''.join([config_dict['saving_options']['file_name'], "_batch_",
-                                                              str(batch_number), ".p"])), "wb"))
-        '''
+            results = pool.starmap(_sr_creation, input_for_pool)        
     duration = (datetime.datetime.now() - start_time).seconds
     print("\nTotal run time is: {}".format(duration))
-
-'''
-# code for merging together all SRs objects into one long list
-import pickle
-import commentjson
-import os
-import re
-config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'reddit-tools', 'r_place_drawing_classifier', 'config', 'srs_creation_config.json')))
-machine = 'yalla' if sys.platform == 'linux' else os.environ['COMPUTERNAME']
-data_path = config_dict['data_dir'][machine]
-sr_files_path = os.path.join(data_path, 'sr_objects')
-files_suffix = config_dict['saving_options']['file_name_suffix'] + '_.p'
-existing_files = [f for f in os.listdir(sr_files_path) if re.match(r'sr_obj_.*\_\.p', f)]
-too_big_obj = ['sr_obj_askreddit_.p', 'sr_obj_politics_.p', 'sr_obj_the_donald_.p', 'sr_obj_news_.p']
-existing_files_filtered = [name for name in existing_files if name not in too_big_obj]
-existing_files_filtered.sort()
-full_list = []
-for f in existing_files[2000:]:
-    cur_obj = pickle.load(open(os.path.join(data_path, 'sr_objects', f), "rb"))
-    cur_obj.comments_as_tokens = None
-    cur_obj.comments_as_list = None
-    full_list.append(cur_obj)
-
-pickle.dump(full_list, open(os.path.join(data_path, 'sr_objects_6_months_sampling_based_submission_17_02_2018_batch5.p'), "ab"))
-
-# after all batches ended, we can run this:
-full_list = []
-for i in range(1,6):
-    cur_file_name = 'sr_objects_6_months_sampling_based_submission_17_02_2018_batch' + str(i) + '.p'
-    full_list.append(pickle.load(open(os.path.join(data_path, cur_file_name), "rb")))
-
-full_list = [item for sublist in full_list for item in sublist]
-pickle.dump(full_list2, open(os.path.join(data_path, "sr_objects", "sr_objects_6_months_sbs_no_comments_data.p"), "ab"))
-
-'''

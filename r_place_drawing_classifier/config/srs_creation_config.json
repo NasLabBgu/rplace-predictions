@@ -1,19 +1,17 @@
 {
+	//this is the configuration file for the creation of the subreddit data. It should be filled in with correct paths and file names
 	"random_seed": 1984,
 	"code_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"data_dir": {
-		"yalla": "/data/work/data/reddit_place",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"results_dir": {
-		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
-		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res",
-		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+		"MACHINE1": "",
+		"MACHINE2": ""
 	},
 	"saving_options": {
 		"save_obj": "True",
@@ -28,13 +26,11 @@
 		"logic": "submissions",
 		"ratio": "1.1:1",
 		"start_month": "2017-01",
-		//"end_month": "2017-01",
 		"end_month": "2017-03",
 		"drawing_threshold": 0.7
 	},
 	"data_period": {
 		"start_month": "2016-10",
-		//"end_month": "2016-10"
 		"end_month": "2017-03"
 	}
 }

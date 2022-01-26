@@ -1,18 +1,15 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 06.08.2019
+# Last update: 26.01.2021
 
 # first importing dynet and setting the configuration as needed
 # (random seed so we'll have a same results over and over again)
 import dynet_config
 dynet_config.set(random_seed=1984, mem='5000', autobatch=0)
-#dynet_config.set_gpu()
 import dynet as dy
 import warnings
 import gc
 import sys
-if sys.platform == 'linux':
-    sys.path.append('/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster/reddit-tools')
 import os
 import collections
 import datetime
@@ -36,7 +33,7 @@ STOPLIST = set(stopwords.words('english') + list(ENGLISH_STOP_WORDS))
 
 ###################################################### Configurations ##################################################
 config_dict = commentjson.load(open(os.path.join(os.getcwd(), 'config', 'modeling_config.json')))
-machine = 'yalla' if sys.platform == 'linux' else os.environ['COMPUTERNAME']
+machine = '' # name of the machine to be used. This should be sync with the config file
 data_path = config_dict['data_dir'][machine]
 ########################################################################################################################
 
@@ -99,9 +96,7 @@ if __name__ == "__main__":
     # deleting the terrible object :)
     del conversations_seq
     gc.collect()
-    # this was used if we want to remove the problematic SRs in terms of missing explanatory features, but now we use
-    # all SRs for modeling
-    #sr_objects = [sr for sr in sr_objects if sr.name not in set(combined_missing_srs)]
+   
     # creating the y vector feature and printing status
     y_data = []
     for idx, cur_sr_obj in enumerate(sr_objects):
@@ -112,24 +107,7 @@ if __name__ == "__main__":
     # Modeling (learning phase)
     submission_dp_obj = RedditDataPrep(is_submission_data=True, remove_stop_words=False, most_have_regex=None)
     reddit_tokenizer = submission_dp_obj.tokenize_text
-    '''
-    for sr in sr_objects[80:100]:
-        examine_word(sr_object=sr, regex_required='rank', tokenizer=reddit_tokenizer,
-                     saving_file=os.getcwd())
-    print("Finished analysis phase, moving to modeling")
     
-    # in case we have an already trained model, and we want to modify it a bit
-    pipeline = pickle.load(
-        open("/data/home/isabrah/reddit_canvas/results/drawing_classifier_res/model_0.03/0.03_all_data.p", "rb"))
-    new_X_data = pipeline.steps[0][1].transform(sr_objects)
-    clf = LogisticRegression()
-    clf.fit(new_X_data, y_data)
-    sr_classifier_utils.print_n_most_informative(vectorizer=[pipeline.named_steps['union'].get_params()[
-                                                                         'ngram_features'].get_params()['steps'][1][1],
-                                                                     pipeline.named_steps['union'].get_params()[
-                                                                         'numeric_meta_features'].get_params()['steps'][1][1]],
-                                                         clf=clf, N=30)
-    '''
     # first option - the model is a BOW one (or just a simple classification one with meta features)
     if config_dict['class_model']['model_type'] == 'bow' or config_dict['class_model']['model_type'] == 'clf_meta_only':
         bow_config = config_dict['class_model']['bow_params']
@@ -202,7 +180,7 @@ if __name__ == "__main__":
                                 'numeric_meta_features'].get_params()['steps'][1][1]], clf=clf, N=30)
 
 
-    # second option - the model is a DL one (kind of...)
+    # second option - the model is a DL one
     elif config_dict['class_model']['model_type'] in {'mlp', 'single_lstm', 'parallel_lstm', 'cnn_max_pooling'}:
         '''
         handling the embedding file (if we want to use an external one). This can be applied only in case we model

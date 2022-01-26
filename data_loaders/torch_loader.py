@@ -1,3 +1,7 @@
+# Authors: Abraham Israeli
+# Python version: 3.6
+# Last update: 26.01.2021
+
 import re
 import os
 import random
@@ -11,7 +15,6 @@ from copy import deepcopy
 from torch.utils.data import DataLoader
 
 
-#class TorchLoader(data.Dataset):
 class TorchLoader(DataLoader):
     cv_splits = None
 
@@ -31,7 +34,6 @@ class TorchLoader(DataLoader):
         self.data_path = config_dict['data_dir'][machine]
         self.sr_objects_path = os.path.join(self.data_path, 'sr_objects', config_dict['srs_obj_file'][machine])
         self.config_dict = config_dict
-        #self.cv_splits = None  # this is the splitting of examples into train/test - will be set later
 
         # now we start loading (this is part of the init!)
         #text_field.preprocessing = data.Pipeline(clean_str)
@@ -112,14 +114,6 @@ class TorchLoader(DataLoader):
             TorchLoader.cv_splits = list(cv_obj.split(examples, y_data))
         super(TorchLoader, self).__init__(examples, fields, **kwargs)
 
-    # splitting the data into folds of train/test (usually 5 folds)
-
-    '''
-    def init_folds_split(cls, ):
-        cv_obj = StratifiedKFold(n_splits=self.config_dict['cv']['folds'], random_state=self.config_dict['random_seed'])
-        y_data = [ex.label for ex in self.examples]
-        cv_splits = list(cv_obj.split(self.examples, y_data))
-    '''
     @staticmethod
     def sort_key(ex):
         return len(ex.text)

@@ -1,14 +1,10 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.7
-# Last update: 31.07.2019
+# Last update: 26.01.2021
 
 from r_place_drawing_classifier.neural_net.nn_classifier import NNClassifier
 import warnings
 import random
-#import dynet_config
-# set random seed to have the same result each time
-#dynet_config.set(random_seed=1984, mem='5000', autobatch=0)
-#dynet_config.set_gpu()
 import dynet as dy
 import numpy as np
 import time

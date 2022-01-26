@@ -1,6 +1,6 @@
-# Authors: Avrahami Israeli (isabrah)
+# Authors: Abraham Israeli
 # Python version: 3.6
-# Last update: 6.11.2018
+# Last update: 26.01.2021
 
 import datetime
 import pandas as pd
@@ -17,8 +17,7 @@ import collections
 from collections import OrderedDict, defaultdict
 
 ###################################################### Configurations ##################################################
-data_path = '/data/work/data/reddit_general/' if sys.platform == 'linux' \
-    else 'C:\\Users\\abrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit canvas\\data\\'
+data_path = ''# NEED TO SET UP YOUR LOCAL DATA PATH
 data_to_process = 'both'   # can be either 'submission' / 'comments' / 'both'
 included_years = [2017]
 

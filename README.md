@@ -14,6 +14,12 @@ In Proceedings of the 2022 The Web Conference, WWW 2022.
   year={2022}
 }
 ```
+
+## r/place Resources
+a. Wikipedia page describing the experiment: https://en.wikipedia.org/wiki/Place_(Reddit)
+b. A fast-forward video of the 72-hours timelapse of the experiment:  https://www.youtube.com/watch?v=XnRCZK3KjUY
+c. The r/place subreddit in Reddit: https://www.reddit.com/r/place/
+
 ## Code 
 Most of the code that was used to load data and train the models is under two folders:
 

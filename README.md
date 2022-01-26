@@ -33,7 +33,7 @@ A folder that contains mode of the code we userd to train the classification mod
 The raw level data is taken from the open Pushift repository (https://files.pushshift.io/reddit/).
 The annotated data (community level) can be found as as a csv file under the "annotated_data" name.
 
-
+## r/place Over Time
 <table>
   <tr>
      <td>$t_0+2$ hours into the experiment</td>
@@ -42,9 +42,9 @@ The annotated data (community level) can be found as as a csv file under the "an
      <td>$t_0+72$ hours into the experiment (end state)</td>
   </tr>
   <tr>
-    <td><img src="pics/1490986860.png" width=250 height=250></td>
-    <td><img src="pics/1491066860.png" width=250 height=250></td>
-    <td><img src="pics/1491116860.png" width=250 height=250></td>
-    <td><img src="pics/1491226860.png" width=250 height=250></td>
+    <td><img src="pics/1490986860.png" width=300 height=300></td>
+    <td><img src="pics/1491066860.png" width=300 height=300></td>
+    <td><img src="pics/1491116860.png" width=300 height=300></td>
+    <td><img src="pics/1491226860.png" width=300 height=300></td>
   </tr>
  </table>

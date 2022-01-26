@@ -18,10 +18,10 @@ In Proceedings of the 2022 The Web Conference, WWW 2022.
 Most of the code that was used to load data and train the models is under two folders:
 
 *  **data_loaders:**
-This is the main code for training and evaluating the model. This is based on the pretrained BERT from huggingface.
+A folder that contains all the code we used to load data from various sources.
 
 * **r_place_drawing_classifier:**
-This file contains our model ```BertForSequenceClassificationDualLoss``` for stance classificarion along with supporting models based on BERT.
+A folder that contains mode of the code we userd to train the classification models.
 
 ## Data
 The raw level data is taken from the open Pushift repository (https://files.pushshift.io/reddit/).

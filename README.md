@@ -36,7 +36,7 @@ The annotated data (community level) can be found as as a csv file under the "an
 ## r/place Over Time
 <table>
   <tr>
-     <td>$`t_0+2`$ hours into the experiment</td>
+     <td>$`a^2 + b^2 = c^2`$ hours into the experiment</td>
      <td>$t_0+7$ hours into the experiment</td>
      <td>$t_0+25$ hours into the experiment</td>
      <td>$t_0+72$ hours into the experiment (end state)</td>

@@ -1,0 +1,145 @@
+{
+	"model_version": "0.52",
+	"description": "cnn_max_pooling_2000_submissions_with_ending_double_layer",
+	"random_seed": 1984,
+	"code_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/reddit_project_with_yalla_cluster",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\reddit_proj_with_yalla_cluster"
+	},
+	"data_dir": {
+		"yalla": "/data/home/orentsur/data/reddit_place",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\data"
+	},
+	"results_dir": {
+		"yalla": "/data/home/isabrah/reddit_canvas/results/drawing_classifier_res",
+		"ABRAHAMI-MOBL2": "C:\\Users\\ABRAHAMI\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res",
+		"AVRAHAMI-PC": "C:\\Users\\avrahami\\Documents\\Private\\Uni\\BGU\\PhD\\reddit_canvas\\results\\drawing_classifier_res"
+	},
+	"srs_obj_file": {
+		//"yalla": "sr_objects_6_months_sampling_based_submission_30_12_2018.p",
+		"yalla": "sr_objects_6_months_sbs_no_comments_data.p",
+		"ABRAHAMI-MOBL2": "sr_objects_102016_to_032017_sample.p",
+		"AVRAHAMI-PC": "sr_objects_102016_to_032017_sample.p"
+	},
+	"results_file": {
+		"yalla": "place_drawing_classifier_results_submission_based_sampling.csv",
+		"ABRAHAMI-MOBL2": "place_drawing_classifier_results_submission_based_sampling.csv",
+		"AVRAHAMI-PC": "place_drawing_classifier_results_submission_based_sampling.csv"
+	},
+	
+	"saving_options": {
+		//how many steps to wait before saving
+		"save_interval": 2,
+		//whether to save when get best performance
+		"save_best": "True",
+		"configuration": "True",
+        "measures": "True",
+		"raw_level_pred": "True",
+		"analysis": "True",
+		"models": "True"
+	},
+	"comments_usage": {
+		"meta_data": "True",
+		"corpus": "False"
+	},
+	"biggest_srs_removal": {
+		"should_remove": "False",
+		"quantile": 0.05
+	},
+	"submissions_sampling": {
+		"should_sample": "True",
+		"sampling_logic": "score",
+		"percentage": 0.7,
+		"max_subm": 2000
+	},
+	"embedding": {
+		// HAS TO BE 256 for ELMO!!!!!
+		"emb_size": 300,
+		"use_pretrained": "True",
+		//"elmo",
+		"model_type": "glove",
+		//"elmo_options_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
+		//"elmo_weight_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
+		"elmo_options_file": "/data/home/orentsur/data/reddit_place/embedding/elmo_2x1024_128_2048cnn_1xhighway_options.json",
+		"elmo_weight_file": "/data/home/orentsur/data/reddit_place/embedding/elmo_2x1024_128_2048cnn_1xhighway_weights.hdf5",
+		//fix the embedding, so no learning is made on this matrix
+		"static": "False",
+		"file_path": {
+			// "embedding/glove.42B.300d.txt",
+			// "embedding/wiki.en.vec"
+			// "embedding/reddit_embedding.txt"
+			"yalla": "embedding/wiki.en.vec",
+			"ABRAHAMI-MOBL2": "embedding\\glove.42B.300d.txt",
+			"AVRAHAMI-PC": "embedding\\glove.42B.300d.txt"
+		}
+	},
+	"meta_data_usage": {
+		"use_meta": "True",
+		"use_network": "True",
+		"network_file_path": {
+			"yalla": "graph_dict.pickle",
+			"ABRAHAMI-MOBL2": "graph_dict.pickle",
+			"AVRAHAMI-PC": "graph_dict.pickle"
+		},
+		"use_communities_overlap": "False",
+		"communities_overlap_file_path": {
+			"yalla": "communities_overlap_model_13_4_2019_dict.p",
+			"ABRAHAMI-MOBL2": "communities_overlap_model_13_4_2019_dict.p",
+			"AVRAHAMI-PC": "communities_overlap_model_13_4_2019_dict.p"
+		}
+	},
+	"cv": {
+		"folds": 5
+	},
+	//filename of model snapshot
+	"snapshot": "None",
+	"mode": {
+		"test": "False",
+		"predict": "False",
+		"train_a_model": "True",
+		//how many epochs to wait before testing
+		"test_interval": 1
+	},
+	//device to use for iterate data, -1 (in device) means cpu. co_code==True disables the gpu
+	"gpu_usage": {
+		"device": "cpu",
+		"no_code": "False"
+	},
+	//classification models params
+	"class_model": {
+		"model_type": "cnn_max_pooling",
+		"authors_seq": {
+			"use_authors_seq": "False",
+			"authors_seq_file_path": {
+				"yalla": "combined_seq.pkl",
+				"ABRAHAMI-MOBL2": "combined_seq.pkl",
+				"AVRAHAMI-PC": "combined_seq.pkl"
+			}
+		},
+		"nn_params": {
+			//'initial learning rate
+			"lr": 0.001,
+			"epochs": 6,
+			"batch_size": 1,
+			"hid_size": 100,
+			"early_stopping": "True",
+			//iteration numbers to stop without performance increasing
+			"early_stop_steps": 2,
+			//'the probability for dropout [default: 0.5]'
+			"dropout": 0.5,
+			//shuffle the data every epoch
+			"shuffle": "True",
+			//l2 constraint of parameters
+			"max_norm": 3.0
+		},
+		"cnn_max_pooling_parmas": {
+			"kernel_num": 100,
+			//comma-separated kernel size to use for convolution
+			"kernel_sizes": "1,2,3",
+			//dimension of the last MLP hidden layer (just before the softmax
+			"last_mlp_dim": 200
+		}
+	}
+}

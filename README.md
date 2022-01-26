@@ -37,9 +37,9 @@ The annotated data (community level) can be found as as a csv file under the "an
 <table>
   <tr>
      <td><b>2 Hours</b> after r/place was launched.</td>
-     <td>7 Hours after r/place was launched.</td>
-     <td>25 Hours after r/place was launched.</td>
-     <td>72 Hours after r/place was launched.</td>
+     <td><b>7 Hours</b> after r/place was launched.</td>
+     <td><b>25 Hours</b> after r/place was launched.</td>
+     <td><b>72 Hours</b> after r/place was launched.</td>
   </tr>
   <tr>
     <td><img src="pics/1490986860.png" width=240 height=240></td>

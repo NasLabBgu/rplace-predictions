@@ -1,4 +1,4 @@
-# r/place Engagement Prediction
+# r/place Prediction
 
 This repository contains most of the code used to build different engagment predictions models. The engagment is based on **Community** level. We rely on the r/place social experiment that took place on April 2017. The fulll research description and modeling process is propsed in the following paper:
 

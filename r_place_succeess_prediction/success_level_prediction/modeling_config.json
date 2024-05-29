@@ -1,0 +1,143 @@
+{
+  "model_version": "2.47",
+  "description": "One of the models that is missing for the ICWSM review. Here runnign the regression model during the experiment, with g2vec.",
+  "random_seed": 1984,
+  //should be set to False in real runs - so multiprocessing will be applied
+  "debug_mode": "False",
+  "save_results": "True",
+  //should be either "before" or "while"
+  "while_or_before_exper": "while",
+  "target_data_dir": {
+    "yalla": "/sise/Yalla_work/data/reddit_place/canvas_annotation_effort_data"
+  },
+  "target_data_f_name": "success_analysis_target_df_25_08_2022.p",//"success_analysis_target_df_09_02_2022.p",
+  "explanatory_data_dir": {
+    "yalla": "/sise/Yalla_work/data/reddit_place/canvas_annotation_effort_data"
+  },
+  "explanatory_data_f_name": "modeling_df_without_gold_label_31_01_2022.p",
+  "results_dir": {
+    "yalla": "/sise/home/isabrah/reddit_canvas/results/success_analysis"
+  },
+  "sr_objs_path": {
+    //the first one is useful when textual data is required (e.g., BERT). If not, better use the concise objects
+    //"yalla": "/sise/Yalla_work/data/reddit_place/canvas_annotation_effort_data/drawing_sr_objects"
+    "yalla": "/sise/Yalla_work/data/reddit_place/canvas_annotation_effort_data/concise_drawing_sr_objects"
+  },
+  "target_feature": {
+    "binary_class": "False",
+    //not relevant for binary classification. If set to True, the target feature is used after log is applies (based10)
+    //we recommended to use it!
+    "log_norm": "True",
+    //not relevant for binary classification
+    "factorize_target_feature": "True",
+    //has to be one out of the following: 'demand_area', 'community_size', 'complexity', or 'diameter'
+    //not relevant for binary classification
+    "factorize_by": "demand_area",
+    //True or False. If set to False, the factorized feature (e.g., community size) is logged (base10)
+    //we recommended to use it as True!! (the log-option did not work well)
+    "use_percentile": "True"
+  },
+  "cv": {
+    //if set to "loo" we run a leave one our model
+    "folds": 5
+  },
+  "features_usage": {
+    "use_meta": "False",
+    "use_network": "False",
+    "use_liwc": "False",
+    "use_bow": "False"
+    },
+  "embeddings_usage": {
+    "use_doc2vec": "False",
+    "use_com2vec": "False",
+    "use_snap": "False",
+    "use_graph2vec": "True"
+  },
+  "comments_usage": {
+    "meta_data": "True",
+    "corpus": "False"
+  },
+  "submissions_sampling": {
+    "should_sample": "True",
+    "sampling_logic": "score",
+    "percentage": 1.0,
+    "max_subm": 1000
+  },
+  "class_model": {
+    //this is for logisitc regression one
+    //"clf": "LogisticRegression",
+    //"clf_params": {
+    //  "max_iter": 10,
+    //  "random_state": 1984
+    //}
+  //},
+    //this is for BERT models
+    //"clf": "BERT",
+    //"clf_params": {
+    //  "model_name": "distilroberta-base",
+      //"model_name": "allenai/longformer-base-4096",
+    //  "max_epochs": 5,
+    //  "batch_size": 32
+    //}
+    //this is for RF models
+    //"clf": "RandomForestClassifier",
+    //"clf_params": {
+    //  "max_depth": 3,
+    //  "n_estimators": 100,
+    //  "random_state": 1984
+    //}
+  //},
+    //this is for gradient boosting models
+    "clf": "GradientBoostingClassifier",
+    "clf_params": {
+      "max_depth": 3,
+      "n_estimators": 30,
+      "random_state": 1984
+    }
+  },
+    //this is for the xgb
+    //"clf": "XGBClassifier",
+    //"clf_params": {
+    //  "scale_pos_weight": 100,
+    //  "max_depth": 4,
+    //  "n_estimators": 40,
+    //  "random_state": 1984
+    //}
+  //},
+  "regression_model": {
+    //this is for linear regression one
+    //"reg": "LinearRegression",
+    //"reg_params": {
+    //  "fit_intercept": "True"
+    //}
+  //},
+    //this is for BERT models
+    //"reg": "BERT",
+    //"reg_params": {
+    //  "model_name": "distilroberta-base",
+      //"model_name": "allenai/longformer-base-4096",
+    //  "max_epochs": 5,
+    //  "batch_size": 32
+    //}
+    //this is for the RF models
+    //"reg": "RandomForestRegressor",
+    //"reg_params": {
+    //  "max_depth": 3,
+    //  "n_estimators": 100,
+    //  "random_state": 1984
+    //}
+  //},
+    //this is for boosting models
+    "reg": "GradientBoostingRegressor",
+    "reg_params": {
+      "max_depth": 3,
+      "n_estimators": 30,
+      "random_state": 1984
+    }
+  },
+  "bow_params": {
+    "max_df": 0.8,
+    "min_df": 3,
+    "max_features": 500
+    }
+}

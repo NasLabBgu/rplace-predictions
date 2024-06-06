@@ -7,7 +7,7 @@ b. The  'r_place_drawing_classifier' directory contains the data and code used f
 
 Both projects focus on the **Community** level prediction. We rely on the r/place social experiment that took place in April 2017. The two full research descriptions and modeling processes are proposed in the following paper:
 
-[With Flying Colors: Predicting Community Success in Large-scale Collaborative Campaigns]([https://ojs.aaai.org/index.php/ICWSM/article/download/31344/33504]). Abraham Israeli and Oren Tsur
+[With Flying Colors: Predicting Community Success in Large-scale Collaborative Campaigns](https://ojs.aaai.org/index.php/ICWSM/article/download/31344/33504). Abraham Israeli and Oren Tsur
 In Proceedings of the International AAAI Conference on Web and Social Media. Vol. 18. 2024.
 
 [This Must Be the Place: Predicting Engagement of Online
@@ -23,7 +23,7 @@ In Proceedings of the 2022 The Web Conference, WWW 2022.
   pages={691--703},
   year={2024}
 }
-'''
+```
 
 ```bibtex
 @article{israeli2022must,
